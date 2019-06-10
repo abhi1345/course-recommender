@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logo">
+      <img src="{% static 'lang-logo.png'%}">
+    </a>
+    <h1>About this website </h1>
+    <p>Who made it and how it works</p>
+  </div>
+</div>
+<div class="container">
+  
+  <div class="row">
+    <div class="col-sm-4">
+      <h3><span class="glyphicon glyphicon-blackboard"></span> Contributors</h3>
+      <ul>
+        <li>
+            <a href="https://linkedin.com/in/abhi333">Abhishek Sharma</a>: Developed frontend, backend. Managing production.
+        </li>
+
+        <li>
+            <a href="https://pngtree.com/freepng/cartoon-cute-little-bear-play-computer_3599072.html">Marina_yym from PNG Tree</a>: Bear with Laptop logo design.
+        </li>
+          
+      </ul>
+    </div>
+    <div class="col-sm-4">
+      <h3><span class="glyphicon glyphicon-th-list"></span> Recommendation System</h3>
+      <ul>
+          
+        <li>
+            <strong>Popularity Based Recommender:</strong> Based on your selected specialization, recommends relevant courses based on popularity among students.
+        </li>
+        
+      </ul>
+    </div>
+      <div class="col-sm-4">
+      <h3><span class="glyphicon glyphicon-equalizer"></span> Data</h3>
+      <ul>
+          
+        <li>
+            Initial data: synthetic
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div> <!-- row -->
+   <div class="alert alert-info text-center" role="alert">
+    Disclaimer: this website is not affiliated with the University of California. 
+  </div>
+</div>
+{% endblock %}
