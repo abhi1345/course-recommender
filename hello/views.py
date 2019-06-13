@@ -42,7 +42,7 @@ def recommend(request):
     print("CUSTOM LOG MSG. Requested: {}".format(spec))
 
     #Dictionary with spec = full name of specialization
-    new_context = {"spec" : spec_names[spec], "test" : "Hello /n var"}
+    new_context = {"spec" : spec_names[spec], "test" : "Hello \n var"}
 
     return render(request, "index3.html", context=new_context)
 
