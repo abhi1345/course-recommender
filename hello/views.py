@@ -20,8 +20,8 @@ def recommend(request):
     print(data)
     print(request)
     print(request.POST)
-    print(request.POST['spec'])
-    return render(request, "index3.html", context=test_dict)
+    print(request.POST['spec'])#=thy
+    return render(request, "index3.html", context=request.POST)
 
 def db(request):
 
