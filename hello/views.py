@@ -9,10 +9,20 @@ def index(request):
     return render(request, "index.html")
 
 def about(request):
-    # return HttpResponse('Hello from Python!')
     return render(request, "index2.html")
 
 test_dict = {"specialization":"Machine Learning / Artificial Intelligence"}
+course_recommendations = {
+    "thy" : ["CS 70"],
+    "sys" : ["CS 162"]}
+
+"""
+TODO:
+- Create Course Info Dataframe (csv)
+- Create Course Recommendations List
+- Edit recommend function to serve recommendations
+"""
+
 
 def recommend(request):
     spec = request.POST['spec']
