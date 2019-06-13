@@ -12,6 +12,7 @@ def about(request):
     return render(request, "index2.html")
 
 test_dict = {"specialization":"Machine Learning / Artificial Intelligence"}
+
 course_recommendations = {
     "thy" : ["CS 70"],
     "sys" : ["CS 162"],
@@ -31,6 +32,7 @@ TODO:
 - Create Course Info Dataframe (csv)
 - Create Course Recommendations List
 - Edit recommend function to serve recommendations
+- Move Global Vars to external data file
 """
 
 
