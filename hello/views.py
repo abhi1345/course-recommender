@@ -14,7 +14,17 @@ def about(request):
 test_dict = {"specialization":"Machine Learning / Artificial Intelligence"}
 course_recommendations = {
     "thy" : ["CS 70"],
-    "sys" : ["CS 162"]}
+    "sys" : ["CS 162"],
+    "mlai" : ["CS 189"],
+    "hci" : ["CS 160"]
+    }
+
+spec_names = {
+    "thy" : "theory",
+    "mlai" : "ML/AI",
+    "sys" : "systems",
+    "hci" : "human-computer interaction"
+    }
 
 """
 TODO:
@@ -25,9 +35,13 @@ TODO:
 
 
 def recommend(request):
+    #String abbreviation of specialization
     spec = request.POST['spec']
     print("CUSTOM LOG MSG. Requested: {}".format(spec))
-    new_context = {"spec" : spec[0]}
+
+    #Dictionary with spec = full name of specialization
+    new_context = {"spec" : spec_names[spec]}
+
     return render(request, "index3.html", context=new_context)
 
 def db(request):
