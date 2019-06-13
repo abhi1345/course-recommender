@@ -15,13 +15,10 @@ def about(request):
 test_dict = {"specialization":"Machine Learning / Artificial Intelligence"}
 
 def recommend(request):
-    data= request.POST.get('data','')
-    print("CUSTOM LOG MSG")
-    print(data)
-    print(request)
-    print(request.POST)
-    print(request.POST['spec'])#=thy
-    return render(request, "index3.html", context=request.POST)
+    spec = request.POST['spec']
+    print("CUSTOM LOG MSG. Requested: {}".format(spec))
+    new_context = {"spec" : spec[0]}
+    return render(request, "index3.html", context=new_context)
 
 def db(request):
 
