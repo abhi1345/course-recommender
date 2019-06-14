@@ -14,9 +14,9 @@ def about(request):
 test_dict = {"specialization":"Machine Learning / Artificial Intelligence"}
 
 course_recommendations = {
-    "thy" : ["CS 70"],
-    "sys" : ["CS 162"],
-    "mlai" : ["CS 189"],
+    "thy" : ["CS 70", "CS 170"],
+    "sys" : ["CS 162", "CS 161"],
+    "mlai" : ["CS 189", "EECS 126"],
     "hci" : ["CS 160"]
     }
 
@@ -42,7 +42,10 @@ def recommend(request):
     print("CUSTOM LOG MSG. Requested: {}".format(spec))
 
     #Dictionary with spec = full name of specialization
-    new_context = {"spec" : spec_names[spec], "test" : "Hello \n var"}
+    r = ', '.join(course_recommendations[spec])
+    new_context = {"spec" : spec_names[spec],
+        "test" : "Hello \n var",
+        "recommendation" : r}
 
     return render(request, "index3.html", context=new_context)
 
