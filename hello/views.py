@@ -43,9 +43,10 @@ def recommend(request):
 
     #Dictionary with spec = full name of specialization
     r = ', '.join(course_recommendations[spec])
-    new_context = {"spec" : spec_names[spec],
-        "test" : "Hello \n var",
-        "recommendation" : r}
+    new_context = {
+        "spec" : spec_names[spec],
+        "recommendation" : r
+        }
 
     return render(request, "index3.html", context=new_context)
 

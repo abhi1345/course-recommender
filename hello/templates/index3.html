@@ -9,7 +9,7 @@
       <img src="{% static 'lang-logo.png'%}">
     </a>
     <h1>Berkeley CS Course Recommender</h1>
-    <p>You chose {{ spec }}! Your recommendations {{ test }} are below. </p>
+    <p>You chose {{ spec }}! Your recommendations are below. </p>
 
     <form id="specform" action="/recommendations/" method="POST">
       {% csrf_token %}
@@ -32,7 +32,7 @@
   <div class="row">
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-info-sign"></span>Recommended Courses</h3>
-      <p>{{ recommendation }}</p>
+      <h4>{{ recommendation }}</h4>
     </div>
     <div class="col-md-6">
       <h3><span class="glyphicon glyphicon-link"></span> Next Steps</h3>
