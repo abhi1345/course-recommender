@@ -13,7 +13,7 @@
 
     <form id="specform" action="/recommendations/" method="POST">
       {% csrf_token %}
-      <select required name="spec" style="color:navy; font-size:16pt; height:50px; width:500px">
+      <select required name="spec" style="color:navy; font-size:16pt; height:50px; width:450px">
          <option value=""> None</option>
           <option value="mlai"> Machine Learning / Artificial Intelligence</option>
           <option value="sys"> Systems</option>
@@ -21,7 +21,7 @@
           <option value="hci"> Human-Computer Interaction</option>
       </select>
       <br><br>
-      <input type="submit" style="color: navy; font-size:16pt; height:50px">
+      <input type="submit" style="color: navy; font-size:16pt; height:50px; width:450px">
     </form>
 
       <!--
