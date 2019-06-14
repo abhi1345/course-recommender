@@ -13,7 +13,7 @@
 
     <form id="specform" action="/recommendations/" method="POST">
       {% csrf_token %}
-      <select required name="spec" style="color:navy; font-size:16pt; height:50px; width:500px">
+      <select required name="spec" style="color:navy; font-size:16pt; height:50px; width:450px">
          <option value=""> None</option>
           <option value="mlai"> Machine Learning / Artificial Intelligence</option>
           <option value="sys"> Systems</option>
@@ -31,13 +31,13 @@
   <hr>
   <div class="row">
     <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span>Recommended Courses</h3>
+      <h3><span class="glyphicon glyphicon-info-sign"></span> Recommended Courses</h3>
       <h4>{{ recommendation }}</h4>
 
 
       <p id="demo"></p>
       <script>
-      var cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
+      var cars = [{{ spec }}, "Volvo", "Saab", "Ford", "Fiat", "Audi"];
       var text = "";
       var i;
       for (i = 0; i < cars.length; i++) {
