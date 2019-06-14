@@ -41,7 +41,6 @@ def recommend(request):
     spec = request.POST['spec']
     print("CUSTOM LOG MSG. Requested: {}".format(spec))
 
-    #Dictionary with spec = full name of specialization
     r = ', '.join(course_recommendations[spec])
     new_context = {
         "spec" : spec_names[spec],
