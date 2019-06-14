@@ -37,8 +37,8 @@
 
       <p id="demo"></p>
       <script>
-      var cars = [{{ spec }}, "Volvo", "Saab", "Ford", "Fiat", "Audi"];
-      var text = "";
+      var cars = ["Volvo", "Saab", "Ford", "Fiat", "Audi"];
+      var text = {{ spec }};
       var i;
       for (i = 0; i < cars.length; i++) {
         text += "• " + cars[i] + "<br>";
