@@ -20,4 +20,4 @@ By version
 * Version 2.0: *Coming Soon*
 
 ### Frontend
-HTML
+Frontend designed with HTML, CSS, Javascript.
