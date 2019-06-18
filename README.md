@@ -2,6 +2,8 @@
 
 A recommendation engine for college courses.
 
+![](extra/home.png)
+
 ### Current version: 1.0
 Popularity-based recommender for UC Berkeley CS classes.
 
