@@ -1,7 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
 from .models import Greeting
+
+"""
+TODO:
+- Create Course Info Dataframe (csv)
+- Create Course Recommendations List
+- Edit recommend function to serve recommendations
+- Move Global Vars to external data file
+"""
 
 # Create your views here.
 def index(request):
@@ -10,8 +17,6 @@ def index(request):
 
 def about(request):
     return render(request, "index2.html")
-
-test_dict = {"specialization":"Machine Learning / Artificial Intelligence"}
 
 course_recommendations = {
     "thy" : ["CS 70", "CS 170"],
@@ -26,15 +31,6 @@ spec_names = {
     "sys" : "systems",
     "hci" : "human-computer interaction"
     }
-
-"""
-TODO:
-- Create Course Info Dataframe (csv)
-- Create Course Recommendations List
-- Edit recommend function to serve recommendations
-- Move Global Vars to external data file
-"""
-
 
 def recommend(request):
     #Input: request with user input.
