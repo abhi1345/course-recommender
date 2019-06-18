@@ -37,23 +37,16 @@ TODO:
 
 
 def recommend(request):
-    #String abbreviation of specialization
-    spec = request.POST['spec']
-    print("CUSTOM LOG MSG. Requested: {}".format(spec))
-
-    r = ', '.join(course_recommendations[spec])
-    new_context = {
-        "spec" : spec_names[spec],
-        "recommendation" : r
-        }
-
+    #Input: request with user input.
+    #Output: Recommendations page with class suggestions.
+    specialization = request.POST['spec']
+    print("CUSTOM LOG MSG. Requested: {}".format(specialization))
+    recommendation_string = ', '.join(course_recommendations[specialization])
+    new_context = {"spec":spec_names[specialization],"recommendation":recommendation_string}
     return render(request, "index3.html", context=new_context)
 
 def db(request):
-
     greeting = Greeting()
     greeting.save()
-
     greetings = Greeting.objects.all()
-
     return render(request, "db.html", {"greetings": greetings})
