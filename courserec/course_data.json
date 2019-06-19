@@ -1,0 +1,14 @@
+{
+  "course_recommendations" : {
+    "thy" : ["CS 70", "CS 170", "CS 172", "CS 174"],
+    "sys" : ["CS 162", "CS 161", "CS 164", "CS 168", "CS 186"],
+    "mlai" : ["CS 189", "EECS 126", "EECS 127", "CS C100", "CS 182"],
+    "hci" : ["CS 160", "CS 169"]
+  },
+  "specialization_name_map" : {
+    "thy" : "theory",
+    "mlai" : "ML/AI",
+    "sys" : "systems",
+    "hci" : "human-computer interaction"
+  }
+}

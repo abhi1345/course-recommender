@@ -1,14 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Greeting
+import json
 
 """
 TODO:
 - Create Course Info Dataframe (csv)
 - Create Course Recommendations List
 - Edit recommend function to serve recommendations
-- Move Global Vars to external data file
+- Move Global Vars to external json file
 """
+
+#Loading External Data
+output_json = json.load(open('course_data.json'))
+specialization_name_map = output_json['specialization_name_map']
+course_recommendations = output_json['course_recommendations']
 
 # Create your views here.
 def index(request):
@@ -17,20 +23,6 @@ def index(request):
 
 def about(request):
     return render(request, "about.html")
-
-course_recommendations = {
-    "thy" : ["CS 70", "CS 170"],
-    "sys" : ["CS 162", "CS 161"],
-    "mlai" : ["CS 189", "EECS 126"],
-    "hci" : ["CS 160"]
-    }
-
-specialization_name_map = {
-    "thy" : "theory",
-    "mlai" : "ML/AI",
-    "sys" : "systems",
-    "hci" : "human-computer interaction"
-    }
 
 def recommend(request):
     #Input: request with user input.
