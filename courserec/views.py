@@ -16,7 +16,7 @@ def index(request):
     return render(request, "index.html")
 
 def about(request):
-    return render(request, "index2.html")
+    return render(request, "about.html")
 
 course_recommendations = {
     "thy" : ["CS 70", "CS 170"],
@@ -25,7 +25,7 @@ course_recommendations = {
     "hci" : ["CS 160"]
     }
 
-spec_names = {
+specialization_name_map = {
     "thy" : "theory",
     "mlai" : "ML/AI",
     "sys" : "systems",
@@ -38,8 +38,8 @@ def recommend(request):
     specialization = request.POST['spec']
     print("CUSTOM LOG MSG. Requested: {}".format(specialization))
     recommendation_string = ', '.join(course_recommendations[specialization])
-    new_context = {"spec":spec_names[specialization],"recommendation":recommendation_string}
-    return render(request, "index3.html", context=new_context)
+    new_context = {"spec":specialization_name_map[specialization],"recommendation":recommendation_string}
+    return render(request, "recommendations.html", context=new_context)
 
 def db(request):
     greeting = Greeting()
