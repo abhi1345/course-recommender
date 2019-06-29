@@ -24,7 +24,7 @@ def about(request):
     return render(request, "about.html")
 
 def load_data():
-    output_json = json.load(open('course_data.json'))
+    output_json = json.load(open('/app/courserec/course_data.json'))
     specialization_name_map = output_json['specialization_name_map']
     course_recommendations = output_json['course_recommendations']
     return specialization_name_map, course_recommendations
