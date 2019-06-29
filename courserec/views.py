@@ -12,9 +12,6 @@ TODO:
 """
 
 #Loading External Data
-output_json = json.load(open('course_data.json'))
-specialization_name_map = output_json['specialization_name_map']
-course_recommendations = output_json['course_recommendations']
 
 # Create your views here.
 def index(request):
@@ -24,10 +21,17 @@ def index(request):
 def about(request):
     return render(request, "about.html")
 
+def load_data():
+    output_json = json.load(open('course_data.json'))
+    specialization_name_map = output_json['specialization_name_map']
+    course_recommendations = output_json['course_recommendations']
+    return specialization_name_map, course_recommendations
+
 def recommend(request):
     #Input: request with user input.
     #Output: Recommendations page with class suggestions.
     specialization = request.POST['spec']
+    specialization_name_map, course_recommendations = load_data()
     print("CUSTOM LOG MSG. Requested: {}".format(specialization))
     recommendation_string = ', '.join(course_recommendations[specialization])
     new_context = {"spec":specialization_name_map[specialization],"recommendation":recommendation_string}
