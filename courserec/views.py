@@ -10,7 +10,7 @@ TODO:
 - Edit recommend function to serve recommendations
 - Move Global Vars to external json file
 """
-
+print(open('course_data.json'))
 #Loading External Data
 
 # Create your views here.
