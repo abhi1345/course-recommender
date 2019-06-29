@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Greeting
 import json
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 """
 TODO:
@@ -10,7 +12,7 @@ TODO:
 - Edit recommend function to serve recommendations
 - Move Global Vars to external json file
 """
-print(open('course_data.json'))
+print("Directory path: {}".format(dir_path))
 #Loading External Data
 
 # Create your views here.
