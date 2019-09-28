@@ -1,17 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Greeting
+from .models import Row
 import json
 import os
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-"""
-TODO:
-- Create Course Info Dataframe (csv)
-- Create Course Recommendations List
-- Edit recommend function to serve recommendations
-- Move Global Vars to external json file
-"""
 print("Directory path: {}".format(dir_path))
 #Loading External Data
 
@@ -27,16 +21,32 @@ def load_data():
     output_json = json.load(open('/app/courserec/course_data.json'))
     specialization_name_map = output_json['specialization_name_map']
     course_recommendations = output_json['course_recommendations']
-    return specialization_name_map, course_recommendations
+    course_descriptions = output_json['course_descriptions']
+    course_difficulties = output_json['course_difficulties']
+    ret = (specialization_name_map,
+        course_recommendations,
+        course_descriptions,
+        course_difficulties)
+    return ret
 
 def recommend(request):
     #Input: request with user input.
     #Output: Recommendations page with class suggestions.
     specialization = request.POST['spec']
-    specialization_name_map, course_recommendations = load_data()
+    specialization_name_map,
+        course_recommendations,
+        course_descriptions,
+        course_difficulties = load_data()
+    person_list = []
+    for course in course_recommendations[specialization]:
+        person = Row(name=course,
+                    description=course_descriptions[course],
+                    difficulty=course_difficulties[course])
+        person_list.append(person)
+
     print("CUSTOM LOG MSG. Requested: {}".format(specialization))
-    recommendation_string = ', '.join(course_recommendations[specialization])
-    new_context = {"spec":specialization_name_map[specialization],"recommendation":recommendation_string}
+    new_context = {"spec" : specialization_name_map[specialization],
+                    "recommendation" : person_list}
     return render(request, "recommendations.html", context=new_context)
 
 def db(request):

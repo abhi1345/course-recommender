@@ -2,7 +2,7 @@
   "course_recommendations" : {
     "thy" : ["CS 70", "CS 170", "CS 172", "CS 174"],
     "sys" : ["CS 162", "CS 161", "CS 164", "CS 168", "CS 186"],
-    "mlai" : ["CS 189", "EECS 126", "EECS 127", "CS C100", "CS 182"],
+    "mlai" : ["CS 189", "CS 188", "EECS 126", "EECS 127", "CS C100", "CS 182"],
     "hci" : ["CS 160", "CS 169"]
   },
   "specialization_name_map" : {
@@ -10,5 +10,29 @@
     "mlai" : "ML/AI",
     "sys" : "systems",
     "hci" : "human-computer interaction"
+  },
+  "course_difficulties" : {
+    "Easy" : ["CS 160", "CS 168", "CS C100", "CS 186"],
+    "Medium" : ["CS 170", "CS 172", "CS 174", "CS 161", "CS 188", "CS 169"],
+    "Hard" : ["CS 70", "CS 189", "CS 162", "EECS 126", "EECS 127", "CS 182", "CS 164"]
+  },
+  "course_descriptions" : {
+    "CS 70" : "Discrete Math and Probability Theory",
+    "CS 170" : "Hard",
+    "CS 172" : "Hard",
+    "CS 174" : "Hard",
+    "CS 162" : "Hard",
+    "CS 161" : "Hard",
+    "CS 164" : "Hard",
+    "CS 168" : "Hard",
+    "CS 186" : "Hard",
+    "CS 189" : "Hard",
+    "CS 188" : "Hard",
+    "EECS 126" : "Hard",
+    "EECS 127" : "Hard",
+    "CS C100" : "Hard",
+    "CS 182" : "Hard",
+    "CS 160" : "Hard",
+    "CS 169" : "Hard"
   }
 }
