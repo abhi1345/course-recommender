@@ -23,30 +23,21 @@ def load_data():
     course_recommendations = output_json['course_recommendations']
     course_descriptions = output_json['course_descriptions']
     course_difficulties = output_json['course_difficulties']
-    ret = (specialization_name_map,
-        course_recommendations,
-        course_descriptions,
-        course_difficulties)
+    ret = (specialization_name_map, course_recommendations, course_descriptions, course_difficulties)
     return ret
 
 def recommend(request):
     #Input: request with user input.
     #Output: Recommendations page with class suggestions.
     specialization = request.POST['spec']
-    specialization_name_map,
-        course_recommendations,
-        course_descriptions,
-        course_difficulties = load_data()
+    specialization_name_map, course_recommendations, course_descriptions, course_difficulties = load_data()
     person_list = []
     for course in course_recommendations[specialization]:
-        person = Row(name=course,
-                    description=course_descriptions[course],
-                    difficulty=course_difficulties[course])
+        person = Row(name=course, description=course_descriptions[course], difficulty=course_difficulties[course])
         person_list.append(person)
 
     print("CUSTOM LOG MSG. Requested: {}".format(specialization))
-    new_context = {"spec" : specialization_name_map[specialization],
-                    "recommendation" : person_list}
+    new_context = {"spec" : specialization_name_map[specialization], "recommendation" : person_list}
     return render(request, "recommendations.html", context=new_context)
 
 def db(request):
