@@ -33,7 +33,11 @@ def recommend(request):
     specialization_name_map, course_recommendations, course_descriptions, course_difficulties = load_data()
     person_list = []
     for course in course_recommendations[specialization]:
-        person = Row(name=course, description=course_descriptions[course], difficulty=course_difficulties[course])
+        course_difficulty = "Medium"
+        for diff in ["Easy", "Medium", "Hard"]:
+            if course in course_difficulties[diff]:
+                course_difficulty = diff
+        person = Row(name=course, description=course_descriptions[course], difficulty=course_difficulty)
         person_list.append(person)
 
     print("CUSTOM LOG MSG. Requested: {}".format(specialization))
