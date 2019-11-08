@@ -8,9 +8,11 @@
     <a href="/" class="lang-logo">
       <img src="{% static 'lang-logo.png'%}">
     </a>
+    
     <h1>
       Berkeley CS Course Recommender
     </h1>
+    
     <p>
       You chose {{ spec }}! Your recommendations are below. 
     </p>
@@ -20,11 +22,13 @@
       {% csrf_token %}
       
       <select required name="spec" style="color:navy; font-size:16pt; height:50px; width:450px">
-         <option value=""> None</option>
+        
+          <option value=""> None</option>
           <option value="mlai"> Machine Learning / Artificial Intelligence</option>
           <option value="sys"> Systems</option>
           <option value="thy"> Theory</option>
           <option value="hci"> Human-Computer Interaction</option>
+        
       </select>
       
       <br>
@@ -41,7 +45,9 @@
       Your Recommendations
     </h1>
   </center>
-  <hr>
+  
+  <br>
+  
   <div class="row">
 
       <center>
@@ -70,7 +76,8 @@
 
   </div> <!-- row -->
    <div class="alert alert-info text-center" role="alert">
-    Disclaimer: this website is not affiliated with the University of California.
-  </div>
+    Disclaimer: this website is not affiliated with the University of California. 
+    Recommendations generated using a popularity-based recommendation engine written in Python.
+   </div>
 </div>
 {% endblock %}
