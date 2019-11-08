@@ -58,7 +58,11 @@
         <br>
         
         <p> 
-          {{ test_string }} 
+          {% for string in test_list %}
+            <p>
+              {{string}} <br> 
+            </p>
+          {% endfor %}
         </p>
 
       </center>
