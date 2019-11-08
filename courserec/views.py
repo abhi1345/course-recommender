@@ -37,7 +37,7 @@ def recommend(request):
     new_context = {"spec" : specialization_name_map[specialization], 
                    "recommendation" : person_list,
                    "courses" : spec_list_str,
-                   "test_string" : "hello \n"}
+                   "test_string" : "hello \n world"}
     return render(request, "recommendations.html", context=new_context)
 
 def db(request):
