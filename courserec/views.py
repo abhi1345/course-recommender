@@ -7,7 +7,6 @@ import os
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 print("Directory path: {}".format(dir_path))
-#Loading External Data
 
 # Create your views here.
 def index(request):
@@ -39,9 +38,13 @@ def recommend(request):
                 course_difficulty = diff
         person = Row(name=course, description=course_descriptions[course], difficulty=course_difficulty)
         person_list.append(person)
+        
+    spec_list_str = ", ".join(specialization_name_map[specialization])
 
     print("CUSTOM LOG MSG. Requested: {}".format(specialization))
-    new_context = {"spec" : specialization_name_map[specialization], "recommendation" : person_list}
+    new_context = {"spec" : specialization_name_map[specialization], 
+                   "recommendation" : person_list,
+                   "courses" : spec_list_str}
     return render(request, "recommendations.html", context=new_context)
 
 def db(request):
