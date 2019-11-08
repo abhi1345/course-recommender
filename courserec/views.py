@@ -29,15 +29,18 @@ def recommend(request):
     #Output: Recommendations page with class suggestions.
     specialization = request.POST['spec']
     specialization_name_map, course_recommendations, course_descriptions, course_difficulties = load_data()
-    person_list = []
-        
     spec_list_str = ", ".join(course_recommendations[specialization])
-
+    table = []
+    for course in course_recommendations[specialization]:
+        for difficulty in ["Easy", "Medium", "Hard"]:
+            if course in course_difficulties[difficulty]:
+                break
+        table.append("{}: {} ({})".format(course, course_descriptions[course], difficulty))
     print("CUSTOM LOG MSG. Requested: {}".format(specialization))
     new_context = {"spec" : specialization_name_map[specialization], 
                    "recommendation" : person_list,
                    "courses" : spec_list_str,
-                   "test_list" : ["hello", "world"]}
+                   "table" : table}
     return render(request, "recommendations.html", context=new_context)
 
 def db(request):
