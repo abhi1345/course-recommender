@@ -36,7 +36,8 @@ def recommend(request):
     print("CUSTOM LOG MSG. Requested: {}".format(specialization))
     new_context = {"spec" : specialization_name_map[specialization], 
                    "recommendation" : person_list,
-                   "courses" : spec_list_str}
+                   "courses" : spec_list_str,
+                   "test_string" : "hello \n"}
     return render(request, "recommendations.html", context=new_context)
 
 def db(request):
