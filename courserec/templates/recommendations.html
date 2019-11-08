@@ -51,14 +51,8 @@
   <div class="row">
 
       <center>
-        <p>
+        <h3>
           Based on your chosen specialization ({{ spec }}), we recommend you take the following courses:
-        </p>
-        
-        <br>
-        
-        <h3> 
-          {{ courses }} 
         </h3>
         
         <br>
@@ -69,6 +63,12 @@
             {{string}} <br> 
           </h4>
         {% endfor %}
+        
+        <br>
+        
+        <p>
+          Course difficulties were determined from online data on average course grades and enrollment histories.
+        </p>
        
       </center>
 
