@@ -31,7 +31,7 @@ def recommend(request):
     specialization_name_map, course_recommendations, course_descriptions, course_difficulties = load_data()
     person_list = []
         
-    spec_list_str = ", ".join(specialization_name_map[specialization])
+    spec_list_str = ", ".join(course_recommendations[specialization])
 
     print("CUSTOM LOG MSG. Requested: {}".format(specialization))
     new_context = {"spec" : specialization_name_map[specialization], 
