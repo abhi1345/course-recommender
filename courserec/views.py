@@ -37,8 +37,7 @@ def recommend(request):
                 break
         table.append("{}: {} ({})".format(course, course_descriptions[course], difficulty))
     print("CUSTOM LOG MSG. Requested: {}".format(specialization))
-    new_context = {"spec" : specialization_name_map[specialization], 
-                   "recommendation" : person_list,
+    new_context = {"spec" : specialization_name_map[specialization],
                    "courses" : spec_list_str,
                    "table" : table}
     return render(request, "recommendations.html", context=new_context)
