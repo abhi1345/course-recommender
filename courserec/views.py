@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Greeting
-from .models import Row
 import json
 import os
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -31,13 +30,6 @@ def recommend(request):
     specialization = request.POST['spec']
     specialization_name_map, course_recommendations, course_descriptions, course_difficulties = load_data()
     person_list = []
-    for course in course_recommendations[specialization]:
-        course_difficulty = "Medium"
-        for diff in ["Easy", "Medium", "Hard"]:
-            if course in course_difficulties[diff]:
-                course_difficulty = diff
-        person = Row(name=course, description=course_descriptions[course], difficulty=course_difficulty)
-        person_list.append(person)
         
     spec_list_str = ", ".join(specialization_name_map[specialization])
 
